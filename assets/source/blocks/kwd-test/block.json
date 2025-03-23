@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "kwd-guten-blockjson/kwd-test",
+    "title": "KWD Test Block",
+    "description": "A simple test block with editable text",
+    "category": "text",
+    "icon": "book",
+    "version": "1.0.0",
+    "textdomain": "kwd-guten-blockjson",
+    "attributes": {
+        "content": {
+            "type": "string",
+            "default": "Enter your text here..."
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "textAlign": {
+            "type": "string",
+            "default": "left"
+        },
+        "fontSize": {
+            "type": "number",
+            "default": 16
+        },
+        "fontFamily": {
+            "type": "string",
+            "default": "Arial"
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+} 

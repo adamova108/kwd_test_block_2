@@ -1,0 +1,39 @@
+.wp-block-kwd-guten-blockjson-kwd-test {
+    margin: 1em 0;
+}
+
+/* Font Family Classes */
+.editor-styles-wrapper {
+    .wp-block {
+        &.font-arial p {
+            font-family: Arial !important;
+        }
+        &.font-helvetica p {
+            font-family: Helvetica !important;
+        }
+        &.font-times-new-roman p {
+            font-family: "Times New Roman" !important;
+        }
+        &.font-georgia p {
+            font-family: Georgia !important;
+        }
+        &.font-verdana p {
+            font-family: Verdana !important;
+        }
+        &.font-courier-new p {
+            font-family: "Courier New" !important;
+        }
+        &.font-tahoma p {
+            font-family: Tahoma !important;
+        }
+        &.font-trebuchet-ms p {
+            font-family: "Trebuchet MS" !important;
+        }
+        &.font-impact p {
+            font-family: Impact !important;
+        }
+        &.font-comic-sans-ms p {
+            font-family: "Comic Sans MS" !important;
+        }
+    }
+} 
