@@ -1,0 +1,51 @@
+{
+    "name": "kwd-guten-blockjson",
+    "version": "1.0.0",
+    "description": "Custom Gutenberg blocks for KWD using modern block.json approach",
+    "author": "Your Name",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "wordpress",
+        "wordpress plugin"
+    ],
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start",
+        "format": "wp-scripts format",
+        "lint:css": "wp-scripts lint-style",
+        "lint:js": "wp-scripts lint-js",
+        "lint:md:docs": "wp-scripts lint-md-docs",
+        "lint:pkg-json": "wp-scripts lint-pkg-json",
+        "packages-update": "wp-scripts packages-update",
+        "plugin-zip": "wp-scripts plugin-zip",
+        "test:e2e": "wp-scripts test-e2e",
+        "test:unit": "wp-scripts test-unit-js"
+    },
+    "dependencies": {
+        "@wordpress/block-editor": "^12.0.0",
+        "@wordpress/blocks": "^12.0.0",
+        "@wordpress/components": "^25.0.0",
+        "@wordpress/i18n": "^4.0.0"
+    },
+    "devDependencies": {
+        "@wordpress/eslint-plugin": "^17.0.0",
+        "@wordpress/scripts": "^26.0.0",
+        "@wordpress/stylelint-config": "^21.0.0"
+    },
+    "browserslist": [
+        "last 5 versions",
+        "> 1%",
+        "maintained node versions",
+        "not dead"
+    ],
+    "eslintConfig": {
+        "extends": [
+            "plugin:@wordpress/eslint-plugin/recommended"
+        ]
+    },
+    "stylelint": {
+        "extends": [
+            "@wordpress/stylelint-config"
+        ]
+    }
+} 
