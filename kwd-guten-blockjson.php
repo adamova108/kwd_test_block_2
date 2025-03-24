@@ -17,13 +17,69 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
+ * Register block category
+ */
+function kwd_guten_blockjson_block_category( $categories ) {
+    return array_merge(
+        $categories,
+        array(
+            array(
+                'slug'  => 'kwd-guten-blockjson',
+                'title' => 'KWD BlockJSON Blocks',
+            ),
+        )
+    );
+}
+add_filter( 'block_categories_all', 'kwd_guten_blockjson_block_category', 10, 1 );
+
+/**
+ * Register block and assets
  */
 function kwd_guten_blockjson_init() {
-    register_block_type( __DIR__ . '/build' );
+    // Register the block
+    register_block_type( 'kwd-guten-blockjson/kwd-test-2', array(
+        'editor_script' => 'kwd-guten-blockjson-editor',
+        'editor_style'  => 'kwd-guten-blockjson-editor',
+        'style'         => 'kwd-guten-blockjson-style',
+    ) );
 }
-add_action( 'init', 'kwd_guten_blockjson_init' ); 
+add_action( 'init', 'kwd_guten_blockjson_init' );
+
+/**
+ * Register block assets
+ */
+function kwd_guten_blockjson_assets() {
+    // Register editor script
+    wp_register_script(
+        'kwd-guten-blockjson-editor',
+        plugins_url( 'assets/blocks/index.js', __FILE__ ),
+        array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n' ),
+        filemtime( plugin_dir_path( __FILE__ ) . 'assets/blocks/index.js' )
+    );
+
+    // Register editor style
+    wp_register_style(
+        'kwd-guten-blockjson-editor',
+        plugins_url( 'assets/blocks/index.css', __FILE__ ),
+        array(),
+        filemtime( plugin_dir_path( __FILE__ ) . 'assets/blocks/index.css' )
+    );
+
+    // Register frontend style
+    wp_register_style(
+        'kwd-guten-blockjson-style',
+        plugins_url( 'assets/blocks/style-index.css', __FILE__ ),
+        array(),
+        filemtime( plugin_dir_path( __FILE__ ) . 'assets/blocks/style-index.css' )
+    );
+}
+add_action( 'init', 'kwd_guten_blockjson_assets' );
+
+/**
+ * Debug: Log all registered blocks
+ */
+function kwd_guten_blockjson_debug_blocks() {
+    $blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
+    error_log('All registered blocks: ' . print_r(array_keys($blocks), true));
+}
+add_action('init', 'kwd_guten_blockjson_debug_blocks', 30); 
